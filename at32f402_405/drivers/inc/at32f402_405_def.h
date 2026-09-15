@@ -1,0 +1,57 @@
+/**
+  **************************************************************************
+  * @file     at32f402_405_def.h
+  * @brief    at32f402_405 macros header file
+  **************************************************************************
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
+  * SPDX-License-Identifier: BSD-3-Clause
+  *
+  **************************************************************************
+  */
+
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __AT32F402_405_DEF_H
+#define __AT32F402_405_DEF_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* gnu compiler */
+#if defined (__GNUC__)
+  #ifndef ALIGNED_HEAD
+    #define ALIGNED_HEAD
+  #endif
+  #ifndef ALIGNED_TAIL
+    #define ALIGNED_TAIL                 __attribute__ ((aligned (4)))
+  #endif
+#endif
+
+/* arm compiler */
+#if defined (__CC_ARM)
+  #ifndef ALIGNED_HEAD
+    #define ALIGNED_HEAD                 __align(4)
+  #endif
+  #ifndef ALIGNED_TAIL
+    #define ALIGNED_TAIL
+  #endif
+#endif
+
+/* iar compiler */
+#if defined (__ICCARM__)
+  #ifndef ALIGNED_HEAD
+    #define ALIGNED_HEAD
+  #endif
+  #ifndef ALIGNED_TAIL
+    #define ALIGNED_TAIL
+  #endif
+#endif
+
+#define UNUSED(x)                        (void)x /* to avoid gcc/g++ warnings */
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
